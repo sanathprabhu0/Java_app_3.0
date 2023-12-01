@@ -15,7 +15,7 @@ def jfrogUpload() :
         response = requests.put(url, auth=(username, password), data=file)
     #check the response.status code
     if response.status_code == 201:
-        print("\nPUT request was successful!")
+        print("\nPUT request was successfull!")
     else:
         print("PUT request failed with status code (response.status_code)")
         print("response content:")
