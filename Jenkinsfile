@@ -64,15 +64,6 @@ pipeline{
                }
             }
        }
-        stage('Maven Build : maven'){
-         when { expression {  params.action == 'create' } }
-            steps{
-               script{
-                   
-                   mvnBuild()
-               }
-            }
-        }
           stage('Maven Build : maven'){
          when { expression {  params.action == 'create' } }
             steps{
@@ -88,15 +79,6 @@ pipeline{
             script{
                 jfrogPush()
                 }
-            }
-        }
-        stage('Docker Image Build'){
-         when { expression {  params.action == 'create' } }
-            steps{
-               script{
-                   
-                   dockerBuild("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
-               }
             }
         }
         stage('Docker Image Build'){
